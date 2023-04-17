@@ -50,3 +50,13 @@ def project(matrix: np.array, vec: np.array) -> np.array:
     print(matrix.shape)
     print(projected_representation(matrix, vec).shape)
     return np.dot(matrix.T, projected_representation(matrix, vec))
+
+
+def normalize(matrix: np.array) -> np.array:
+    """
+    :param matrix: matrix to normalize
+    :return: matrix normalized to be a source for an image
+    """
+    min = np.amin(matrix)
+    max = np.amax(matrix)
+    return (matrix - min) * 255.0 / (max - min)
